@@ -11,8 +11,19 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <title>Jogo da Velha</title>
     <script type="text/javascript">
-        function clean(){
+        let currentPlayer =1;
 
+        $("td").click(jogar);
+        $("#btnClean").click(clean);
+
+        function clean(){
+            $("td").text("");
+            $("#winner").text("");
+            $("td").on("click",jogar);
+        }
+
+        function jogar(){
+            
         }
     </script>
 </head>
