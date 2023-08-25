@@ -11,19 +11,40 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <title>Jogo da Velha</title>
     <script type="text/javascript">
-        let currentPlayer =1;
+        let currentPlayer = 1;
 
         $("td").click(jogar);
         $("#btnClean").click(clean);
 
-        function clean(){
+        function clean() {
             $("td").text("");
             $("#winner").text("");
-            $("td").on("click",jogar);
+            $("td").on("click", jogar);
         }
 
-        function jogar(){
-            
+        function jogar() {
+
+        }
+
+        function verificaVencedor() {
+            let winner = false;
+            if ($("#1").text() != ("") && $("#1").text() == $("#2").text() && $("#2").text() == $("#3").text()) {
+                winner = true;
+            } else if ($("#4").text() != ("") && $("#4").text() == $("#5").text() && $("#5").text() == $("#6").text()) {
+                    winner = true;
+            }else if ($("#7").text() != ("") && $("#7").text() == $("#8").text() && $("#8").text() == $("#9").text()) {
+                    winner = true;
+            }else if ($("#1").text() != ("") && $("#1").text() == $("#4").text() && $("#4").text() == $("#7").text()) {
+                    winner = true;
+            }else if ($("#2").text() != ("") && $("#2").text() == $("#5").text() && $("#5").text() == $("#8").text()) {
+                    winner = true;
+            }else if ($("#3").text() != ("") && $("#3").text() == $("#6").text() && $("#6").text() == $("#9").text()) {
+                    winner = true;
+            }else if ($("#1").text() != ("") && $("#1").text() == $("#5").text() && $("#5").text() == $("#9").text()) {
+                    winner = true;
+            }else if ($("#3").text() != ("") && $("#3").text() == $("#5").text() && $("#5").text() == $("#7").text()) {
+                    winner = true;
+            }
         }
     </script>
 </head>
@@ -32,30 +53,35 @@
     <div class="container mb-5">
         <h1 class="text-center">Jogo da Velha</h1>
         <div class="row">
-            <div class="col-sm-12 mt-5 text-center" >
+            <div class="col-sm-12 mt-5 text-center">
                 <table class="table table-bordered">
                     <thead>
-                      <tr>
-                        <td id="1"></td>
-                        <td id="2"></td>
-                        <td id="3"></td>
-                      </tr>
-                      <tr>
-                        <td id="4"></td>
-                        <td id="5"></td>
-                        <td id="6"></td>
-                      </tr>
-                      <tr>
-                        <td id="7"></td>
-                        <td id="8"></td>
-                        <td id="9"></td>
-                      </tr>
+                        <tr>
+                            <td id="1"></td>
+                            <td id="2"></td>
+                            <td id="3"></td>
+                        </tr>
+                        <tr>
+                            <td id="4"></td>
+                            <td id="5"></td>
+                            <td id="6"></td>
+                        </tr>
+                        <tr>
+                            <td id="7"></td>
+                            <td id="8"></td>
+                            <td id="9"></td>
+                        </tr>
                     </thead>
                     <tbody></tbody>
-                  </table>
+                </table>
             </div>
             <div class="col-sm-12 text-center">
                 <button class="btn btn-primary" onclick="clean()">Limpar</button>
+                <div>
+                    <h1>Placar</h1>
+                    <h4>Jogadaor 1: <span id="Palyer_1">0</span></h4>
+                    <h4>Jogadaor 2: <span id="player_2">0</span></h4>
+                </div>
             </div>
         </div>
     </div>
